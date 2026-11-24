@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aastha Punjabi — IIT Kanpur graduate in Electrical Engineering, data transformation and analytics associate, and aspiring master's student.">
+  <title>Aastha Punjabi | Portfolio</title>
+  <style>
+    :root {
+      --ink: #202124; --muted: #686b70; --line: #e9e9e7;
+      --soft: #f7f7f5; --accent: #536b5b; --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; background: var(--white); color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7; }
+    a { color: inherit; }
+    .wrap { width: min(1060px, calc(100% - 44px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-family: Georgia, serif; font-size: 1.35rem; text-decoration: none; letter-spacing: -.04em; }
+    .navlinks { display: flex; align-items: center; gap: 26px; }
+    .navlinks a { text-decoration: none; color: var(--muted); font-size: .91rem; }
+    .navlinks a:hover, .textlink:hover { color: var(--accent); }
+    .hero { display: grid; grid-template-columns: 1.35fr .75fr; gap: 64px; align-items: center; padding: 100px 0 90px; }
+    .eyebrow { color: var(--accent); font-size: .76rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(3rem, 7vw, 5.8rem); line-height: 1.02; letter-spacing: -.055em; margin: 18px 0 22px; }
+    h1 span { color: #858982; }
+    .lead { max-width: 650px; color: var(--muted); font-size: 1.08rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; padding: 11px 19px;
+      border: 1px solid var(--ink); border-radius: 3px; text-decoration: none; font-size: .9rem; transition: .2s; }
+    .button.primary { background: var(--ink); color: white; }
+    .button:hover { transform: translateY(-2px); }
+    .portrait { width: 100%; max-width: 300px; aspect-ratio: 4 / 5; justify-self: end; background: var(--soft);
+      border: 1px solid var(--line); display: grid; place-items: center; overflow: hidden; }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .portrait .placeholder { text-align: center; color: #8a8d87; padding: 24px; }
+    .portrait .initials { font-family: Georgia, serif; font-size: 4.5rem; color: #a6aaa2; line-height: 1.1; }
+    section { padding: 74px 0; border-top: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: 220px 1fr; gap: 36px; margin-bottom: 34px; }
+    h2 { font-family: Georgia, serif; font-size: 2.35rem; font-weight: 400; line-height: 1.15; margin: 0; letter-spacing: -.035em; }
+    h3 { font-size: 1.08rem; margin: 0 0 6px; }
+    p { margin-top: 0; }
+    .muted { color: var(--muted); }
+    .entry { padding: 22px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 20px; }
+    .entry:first-child { border-top: 0; }
+    .date { color: var(--muted); font-size: .88rem; white-space: nowrap; }
+    .entry p { margin: 8px 0 0; color: var(--muted); }
+    .entry ul { margin: 10px 0 0; padding-left: 20px; color: var(--muted); }
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .project { padding: 24px; background: var(--soft); border: 1px solid var(--line); }
+    .project .number { color: var(--accent); font-size: .76rem; letter-spacing: .12em; }
+    .project h3 { margin: 10px 0; font-family: Georgia, serif; font-size: 1.35rem; font-weight: 400; }
+    .project p { color: var(--muted); margin-bottom: 0; }
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+    .chip { background: var(--soft); border: 1px solid var(--line); padding: 6px 11px; font-size: .84rem; color: #555a55; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .contact-item { padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .contact-item small { display: block; color: var(--muted); margin-bottom: 3px; }
+    .textlink { text-decoration-thickness: 1px; text-underline-offset: 4px; overflow-wrap: anywhere; }
+    footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; }
+    .foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 32px, 560px); }
+      nav { align-items: flex-start; flex-direction: column; padding: 15px 0; gap: 8px; }
+      .navlinks { gap: 17px; flex-wrap: wrap; }
+      .navlinks a { font-size: .85rem; }
+      .hero { grid-template-columns: 1fr; gap: 34px; padding: 65px 0; }
+      .portrait { justify-self: start; max-width: 220px; }
+      .section-head { grid-template-columns: 1fr; gap: 12px; }
+      section { padding: 56px 0; }
+      .project-grid, .contact-grid { grid-template-columns: 1fr; }
+      .entry { grid-template-columns: 1fr; gap: 3px; }
+      .date { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="wrap" aria-label="Main navigation">
+    <a class="brand" href="#home">Aastha Punjabi.</a>
+    <div class="navlinks">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap" id="home">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">IIT Kanpur graduate · Exploring what's next</div>
+        <h1>Hello, I'm<br><span>Aastha Punjabi.</span></h1>
+        <p class="lead">I’m an Electrical Engineering graduate from the Indian Institute of Technology Kanpur, currently working in Data Transformation and Analytics at Accenture and preparing for the next chapter of my academic journey.</p>
+        <div class="actions">
+          <a class="button primary" href="assets/Aastha_Punjabi_CV.pdf" target="_blank" rel="noopener">Download CV ↗</a>
+          <a class="button" href="#projects">Explore projects</a>
+        </div>
+      </div>
+      <div class="portrait" aria-label="Profile photo area">
+        <img id="profilePhoto" src="assets/profile.jpg" alt="Portrait of Aastha Punjabi">
+        <div class="placeholder" id="photoPlaceholder"><div class="initials">AP</div><p>Add your profile photo<br><small>Save it as assets/profile.jpg</small></p></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">A little about me</div><h2>About</h2></div>
+        <div><p class="muted">My interests lie at the intersection of data, machine learning and practical problem-solving. Through industry experience, open-source work and academic projects, I have explored NLP, computer vision, multimodal systems and scalable data pipelines. I am currently applying for master's programs.</p></div>
+      </div>
+
+      <div class="eyebrow">Education</div>
+      <div class="entry"><div><h3>Indian Institute of Technology Kanpur</h3><div class="muted">Bachelor of Technology in Electrical Engineering</div></div><div class="date">2025</div></div>
+
+      <div class="eyebrow" style="margin-top:34px">Professional experience</div>
+      <div class="entry"><div><h3>Associate — Data Transformation and Analytics · Accenture</h3>
+        <ul><li>Developed scalable data transformation pipelines on Azure Databricks using PySpark and SQL for enterprise data migration.</li><li>Built supervised and unsupervised NLP models for part classification across multiple clients.</li><li>Built low-code AI agents for data validation, data quality, resource discovery and OCR-based document digitization.</li></ul></div><div class="date">Jul 2025 – Present</div></div>
+      <div class="entry"><div><h3>Open Source Developer · Google Summer of Code 2024, Red Hen Lab</h3>
+        <ul><li>Contributed to a comprehensive multimodal corpus of Farsi-language content for linguistic analysis.</li><li>Used yt-dlp for data acquisition and OpenAI Whisper for automatic speech recognition.</li><li>Fine-tuned XLM-RoBERTa for Farsi punctuation restoration and integrated the corpus into CQPweb, including encoding, annotation and metadata.</li></ul></div><div class="date">May – Sep 2024</div></div>
+      <div class="entry"><div><h3>Artificial Intelligence Intern · Meril Life Sciences</h3>
+        <ul><li>Worked on a real-time multimodal system exploring anxiety and depression detection using facial, audio and physiological cues.</li><li>Explored fidgeting behaviour with a multimodal autoencoder and OpenPose keypoints, and heart-rate estimation using rPPG.</li><li>Mapped eye-tracking features to emotions with Random Forest and explored transformer- and attention-based emotion detection using RAVDESS.</li></ul></div><div class="date">Jun – Jul 2024</div></div>
+
+      <div class="eyebrow" style="margin-top:34px">Selected coursework</div>
+      <p class="muted">Probabilistic Machine Learning · Parallel Computing · Intelligent Pattern Recognition · Computer Vision and Deep Learning · Agentic AI · Agentic Knowledge Graph Construction · LangChain Chat with Your Data · LangChain for LLM Applications · AWS Cloud Technical Essentials · Probability and Statistics · Linear Algebra and Differential Equations · Fundamentals of Computing</p>
+
+      <div class="eyebrow" style="margin-top:34px">Technical skills</div>
+      <div class="chips">
+        <span class="chip">Python</span><span class="chip">Bash</span><span class="chip">SQL</span><span class="chip">C</span><span class="chip">HTML</span><span class="chip">LaTeX</span>
+        <span class="chip">NumPy</span><span class="chip">Pandas</span><span class="chip">PyTorch</span><span class="chip">Matplotlib</span><span class="chip">OpenCV</span><span class="chip">MediaPipe</span><span class="chip">NLTK</span><span class="chip">spaCy</span><span class="chip">TensorFlow</span><span class="chip">scikit-learn</span>
+        <span class="chip">AWS</span><span class="chip">Azure Databricks</span><span class="chip">Git/GitHub</span><span class="chip">Linux</span><span class="chip">Slurm</span><span class="chip">HPC</span><span class="chip">Data Structures & Algorithms</span>
+      </div>
+
+      <div class="eyebrow" style="margin-top:34px">Academic achievements</div>
+      <div class="entry"><div><h3>IMAGINE Hackathon at PIWOT 2025</h3><p>Selected among the top 2% of 15,000+ teams nationwide as a finalist.</p></div><div class="date">2025</div></div>
+      <div class="entry"><div><h3>Google Summer of Code 2024</h3><p>Selected as one of 1,220 contributors from more than 43,000 applicants.</p></div><div class="date">2024</div></div>
+      <div class="entry"><div><h3>JEE Advanced</h3><p>Secured All India Rank 6974 among 150,000 shortlisted candidates.</p></div><div class="date">2021</div></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">Selected work</div><h2>Projects</h2></div>
+        <p class="muted">A selection of research and academic projects across computer vision, machine learning and image processing.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project"><div class="number">01 / RESEARCH PROJECT</div><h3>Scoliosis Detection</h3><p>Explored a video-based scoliosis screening system to compute the Asymmetry Index (AIX). Used SAM2 for back-region segmentation, VGG-T for dense 3D point-cloud generation and HSurfNet for surface-normal estimation to support curvature and asymmetry analysis.</p></article>
+        <article class="project"><div class="number">02 / UNDERGRADUATE PROJECT</div><h3>Cloud Motion Generation within Still Images</h3><p>Worked on cloud segmentation and motion prediction using CloudSegNet, contour detection, HRNet and self-supervised decoupled motion models. Used a StyleGAN-based approach to generate realistic cloud-motion animations from static landscape images.</p></article>
+        <article class="project"><div class="number">03 / COURSE PROJECT</div><h3>Probabilistic Machine Learning</h3><p>Implemented RHO-LOSS to prioritize informative training examples and adapted ResNet-18 into a Bayesian neural network for uncertainty estimation. Reported 18× faster training with a 2–4% accuracy gain on CIFAR-10, and a 66% reduction in predictive Negative Log-Likelihood.</p></article>
+        <article class="project"><div class="number">04 / ADDITIONAL PROJECTS</div><h3>Pattern Recognition & Computer Vision</h3><p>Built an autoencoder-based feedback recommender, reconstructed U²-Net using binarized neural-network principles for salient object detection (30% lower training time on DUTS), and worked on image-processing tools including bilateral filtering, lava-mask generation and Hough-transform text alignment.</p></article>
+        <article class="project"><div class="number">05 / NLP & DEEP LEARNING</div><h3>Story-based Chatbot using RNN</h3><p>Developed a recurrent-neural-network chatbot for question answering over stories using the BaBi dataset, alongside sentiment analysis and Naive Bayes / Support Vector Machine text classification.</p></article>
+        <article class="project"><div class="number">06 / RESEARCH & OPEN SOURCE</div><h3>Farsi Multimodal Corpus</h3><p>As part of Google Summer of Code with Red Hen Lab, contributed to an end-to-end Farsi corpus pipeline with speech recognition, punctuation restoration and corpus integration in CQPweb.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">Say hello</div><h2>Contact</h2></div>
+        <p class="muted">I'm happy to connect about graduate study, research, machine learning, data and collaboration opportunities.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item"><small>Email</small><a class="textlink" href="mailto:aasthapunjabi2003@gmail.com">aasthapunjabi2003@gmail.com</a></div>
+        <div class="contact-item"><small>LinkedIn</small><a class="textlink" href="https://www.linkedin.com/in/aastha-punjabi-48360123b" target="_blank" rel="noopener">linkedin.com/in/aastha-punjabi-48360123b ↗</a></div>
+        <div class="contact-item"><small>GitHub</small><a class="textlink" href="https://github.com/aastha235" target="_blank" rel="noopener">github.com/aastha235 ↗</a></div>
+      </div>
+      <div class="actions"><a class="button primary" href="assets/Aastha_Punjabi_CV.pdf" target="_blank" rel="noopener">Download my CV ↗</a></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap foot"><span>© <span id="year"></span> Aastha Punjabi</span><span>Designed with simplicity in mind.</span></div></footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const photo = document.getElementById("profilePhoto");
+  photo.onload = () => { photo.style.display = "block"; document.getElementById("photoPlaceholder").style.display = "none"; };
+  photo.onerror = () => { photo.style.display = "none"; };
+</script>
+</body>
+</html>
